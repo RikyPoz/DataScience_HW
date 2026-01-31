@@ -19,9 +19,9 @@ from sklearn.feature_selection import SelectKBest, chi2
 from nltk.stem import SnowballStemmer
 
 SEED = 42   
-TRAIN_FILE = 'winter_project_2026/development.csv'   
-EVAL_FILE = 'winter_project_2026/evaluation.csv'     
-OUTPUT_FILE = 'winter_project_2026/sample_submission.csv'
+TRAIN_FILE = 'development.csv'   
+EVAL_FILE = 'evaluation.csv'     
+OUTPUT_FILE = 'sample_submission.csv'
 
 def preprocess_text(df, remove_duplicates=False):
     if remove_duplicates:
