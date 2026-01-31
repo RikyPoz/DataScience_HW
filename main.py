@@ -109,14 +109,14 @@ def main():
             sublinear_tf=True,
             ngram_range=(1,2)
         )),
-        ('selector', SelectKBest(chi2, k=50000))
+        ('selector', SelectKBest(chi2, k=40000))
     ])
 
     final_pipeline = Pipeline([
         ('preprocessor', ColumnTransformer(
             transformers=[
                 ('tfidf', final_text_pipeline, 'clean_text'),
-                ('ohe', OneHotEncoder(handle_unknown='ignore', min_frequency=5), ['source','day_of_week']), 
+                ('ohe', OneHotEncoder(handle_unknown='infrequent_if_exist', min_frequency=5), ['source','day_of_week']), 
                 ('num', MinMaxScaler(), ['page_rank', 'hour', 'has_date'])
             ]
         )),
